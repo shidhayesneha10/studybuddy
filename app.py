@@ -25,7 +25,7 @@ if not api_key:
     st.error("API key not found. Set LLM_API_KEY (or OPENAI_API_KEY) as an environment variable or in Streamlit secrets.")
     st.stop()
 BASE_URL = get_setting("LLM_BASE_URL")          # None = OpenAI
-MODEL = "gemini-3.8-flash"
+MODEL = get_setting("LLM_MODEL", "gemini-3.5-flash-lite")
 client = OpenAI(api_key=api_key, base_url=BASE_URL)
 
 # ---------- Prompt engineering: one system prompt per mode ----------
